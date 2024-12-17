@@ -1,0 +1,161 @@
+08. Matrix
+
+Lec 5 Snake Matrix
+
+for(int i=0;i<r;i++){
+	if(i%2 == 0){
+	for(int j=0;j<c;j++){
+		print arr[i][j]
+		}
+	}
+	else{
+	for(int j=c-1;j>=0;j--){
+		print arr[i][j]
+		}
+	}
+}
+	
+TC: O(R x C)
+
+Lec 6 Boundary Elements
+
+1  2  3  4
+5  6  7  8
+9  10 11 12
+13 14 15 16
+
+=> 1 2 3 4 8 12 16 15 14 13 9 5
+
+if( r==1 || c==1){
+	for(int i=0;i<n;i++){ //Corner case
+		print arr[i]
+	}
+
+for(int i=0;i<c;i++){
+	print arr[0][i];
+}
+
+for(int i=1;i<r;i++){
+	print arr[i][c-1];
+}
+
+for(int i=c-2;i>=0;i--){
+	print arr[r-1][i];
+}
+
+for(int i=r-2;i>=1;i--){
+	print arr[i][0];
+}
+
+TC: O(R + C)
+
+Lec 7 Transpose of Matrix
+
+//When Different Lengths
+ int newArr[][] = new int[c][r]
+
+for(int i=0;i<r;i++){
+	for(int j=0;j<c;j++){
+		if(i != j){
+		newArr[j][i] = arr[i][j];
+		}
+	}
+}
+
+  OR
+ 
+for(int i=0;i<n;i++){
+	for(int j=i+1;j<n;j++){
+		swap arr[i][j],arr[j][i]
+	}
+}
+
+Lec 8 Rotate Matrix by 90 (anticlockwise)
+
+1 2 3 4
+5 6 7 8
+
+=>
+
+4 8
+3 7
+2 6
+1 5
+
+Solution 1.Find transpose
+	2.Reverse each column
+
+Lec 9  Spiral Matrix
+
+note- Don't forget to put if clauses agter right and down
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        ArrayList<Integer> al = new ArrayList<Integer>();
+        if (matrix == null || matrix.length == 0) {
+            return al;
+        }
+        
+        int left = 0;
+        int right = matrix[0].length - 1;
+        int top = 0;
+        int bottom = matrix.length - 1;
+
+        while (left <= right && top <= bottom) {
+            for (int i = left; i <= right; i++) {
+                al.add(matrix[top][i]);
+            }
+            top++;
+
+            for (int i = top; i <= bottom; i++) {
+                al.add(matrix[i][right]);
+            }
+            right--;
+
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--) {
+                    al.add(matrix[bottom][i]);
+                }
+                bottom--;
+            }
+
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    al.add(matrix[i][left]);
+                }
+                left++;
+            }
+        }
+        return al;
+    }
+}
+
+Lec 10 Search in a row wise and column wise sorted matrix
+
+1.begin from top right
+2.if curr = target print true
+3. if curr < target move left
+4. if curr > target move down
+
+Lec 12 Median of a row JAVA
+
+*
+
+01. Adding two matrices ✅
+02. Sum of upper and lower triangles ✅
+03. Multiply the matrices ✅
+04. Print Matrix in snake Pattern ✅
+05. Transpose of Matrix ✅
+06. Rotate by 90 degree ✅
+07. Determinant of a Matrix 
+08. Boundary traversal of matrix ✅
+09. Exchange matrix columns ✅
+10. Spirally traversing a matrix ✅
+11. Reversing the columns of a Matrix 
+12. Interchanging the rows of a Matrix
+13. Search in a row-column sorted Matrix
+14. Boolean Matrix
+15. Make Matrix Beautiful
+
+		
+

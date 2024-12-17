@@ -1,0 +1,73 @@
+01. Print 1 To N Without Loop
+
+class Solution{
+    static void printTillN(int n){
+        // code here
+        if(n==0){
+            return ;
+        }
+        printTillN(n-1);
+        System.out.print(n + " ");
+    }
+}
+
+02. Sum of Digits of a Number
+
+class Solution{
+    static int sumOfDigits(int n) {
+        // code here
+        if(n == 0){
+            return 0;
+        }
+        return n%10 + sumOfDigits(n/10);
+    }
+}
+
+04. Digital Root
+05. Fibonacci Using Recursion
+06. Tower Of Hanoi
+07. Josephus problem
+08. Lucky Numbers
+class Solution {
+    public static boolean isLucky(int n) {
+        return isLuckyHelper(n, 2);
+    }
+    
+    private static boolean isLuckyHelper(int n, int counter) {
+        if (counter > n) {
+            return true;
+        }
+        if (n % counter == 0) {
+            return false;
+        }
+         n = n - (n / counter);
+        return isLuckyHelper(n, counter + 1);
+    }
+}
+09. Power Using Recursion
+10. Power Of Numbers
+class Solution {
+    long power(int N, int R) {
+        long mod = 1000000007;
+        return powerMod(N, R, mod);
+    }
+
+    long powerMod(int N, int R, long mod) {
+        if (R == 0) {
+            return 1; // Base case: N^0 = 1
+        }
+        
+        long halfPower = powerMod(N, R / 2, mod);
+        long halfResult = (halfPower * halfPower) % mod; // Square the half power
+        
+        if (R % 2 == 1) {
+            // If R is odd, multiply by N one more time
+            halfResult = (halfResult * N) % mod;
+        }
+        
+        return halfResult;
+    }
+}
+
+11. Power Set Using Recursion
+12. Possible Words From Phone Digits
